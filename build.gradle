@@ -1,0 +1,39 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    ext.kotlin_version = '1.3.50'
+    ext {
+        //https://github.com/googlesamples/android-custom-lint-rules/tree/master/android-studio-3
+//        The lint version of the libraries (specified in this project as the lintVersion variable in build.gradle)
+//        should be the same version that is used by the Gradle plugin.
+//If the Gradle plugin version is X.Y.Z, then the Lint library version is X+23.Y.Z.
+        //因为这两个的版本不一样导致自己浪费了一个星期的时间
+        //小小一个bug，真是无奈
+        gradlePluginVersion = '3.3.2'
+        lintVersion = '26.3.2'
+    }
+    repositories {
+        google()
+        jcenter()
+        
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:$gradlePluginVersion"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

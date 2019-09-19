@@ -1,0 +1,87 @@
+apply plugin: 'java-library'
+
+
+
+dependencies {
+
+//    compileOnly 'com.android.tools.lint:lint-api:26.3.2'
+//    compileOnly 'com.android.tools.lint:lint-checks:26.3.2'
+    // For a description of the below dependencies, see the main project README
+    compileOnly "com.android.tools.lint:lint-api:$lintVersion"
+    compileOnly "com.android.tools.lint:lint-checks:$lintVersion"
+    testImplementation "junit:junit:4.12"
+    testImplementation "com.android.tools.lint:lint:$lintVersion"
+    testImplementation "com.android.tools.lint:lint-tests:$lintVersion"
+    testImplementation "com.android.tools:testutils:$lintVersion"
+}
+
+sourceCompatibility = "1.8"
+targetCompatibility = "1.8"
+
+
+
+/*--------------------------------如下是旧版需要的，gradle3以上是不需要的-------------------------------*/
+
+//jar {
+//    manifest {
+//        attributes("Lint-Registry": "com.android.example.lintjat.CustomIssueRegistry")
+//    }
+//}
+//defaultTasks 'assemble'
+//
+///*
+// * rules for providing "lintCoreLibrary.jar"
+// */
+//configurations {
+//    lintJarOutput
+//}
+//
+//dependencies {
+//    lintJarOutput files(jar)
+//}
+
+/*--------------------------------旧版结束------------------------------*/
+
+
+/*--------------------------------新版的要求------------------------------*/
+
+// 新版当中不可以使用旧版本的写法，不然虽不会报错，但是没有效果
+jar {
+    manifest {
+        // Only use the "-v2" key here if your checks have been updated to the
+        // new 3.0 APIs (including UAST)
+        attributes("Lint-Registry-v2": "com.android.example.lintjat.CustomIssueRegistry")
+    }
+}
+
+/*--------------------------------新版的结束------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
