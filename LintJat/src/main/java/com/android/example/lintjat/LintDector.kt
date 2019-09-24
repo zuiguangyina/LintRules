@@ -10,7 +10,7 @@ class  LintDector  : Detector(),Detector.UastScanner{
                 "册是变量的名称",
                 "不要乱起名字，敏感字不要使用",
                 Category.SECURITY, 5, Severity.ERROR,
-                Implementation(TestDector::class.java, Scope.JAVA_FILE_SCOPE))
+                Implementation(LintDector::class.java, Scope.JAVA_FILE_SCOPE))
     }
 
 

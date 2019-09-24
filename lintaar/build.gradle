@@ -70,10 +70,10 @@ dependencies {
 
 /*------------------------------发布aar包-----------------------------------------------------------*/
 //apply plugin:'maven'
-////apply plugin: 'maven-publish'
+//////apply plugin: 'maven-publish'
 //ext {
 //// 从Github上clone下来的项目的本地地址
-//    GITHUB_REPO_PATH ="E:\\git\\github\\plugin2"
+//    GITHUB_REPO_PATH ="E:\\git\\github\\plugin3\\newLintRule"
 //
 //    PUBLISH_GROUP_ID ='com.gf.plugin'  //这个不要跟着我写 这是github 的id
 //
