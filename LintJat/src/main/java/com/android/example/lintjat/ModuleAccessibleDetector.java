@@ -1,5 +1,5 @@
 package com.android.example.lintjat;
-
+import com.android.example.lintjat.Utils.ConstantsUtils;
 import com.android.tools.lint.client.api.UElementHandler;
 import com.android.tools.lint.detector.api.Category;
 import com.android.tools.lint.detector.api.Detector;
@@ -137,7 +137,7 @@ public class ModuleAccessibleDetector extends Detector implements Detector.UastS
         }
         for (PsiAnnotation psiAnnotation : psiAnnotations) {
             String name = psiAnnotation.getQualifiedName();
-            if (name != null && name.equals(Constants.ANNOTATION_ROOT + "ModuleAccessible")) {
+            if (name != null && name.equals(ConstantsUtils.ANNOTATION_ROOT + "ModuleAccessible")) {
                 String projectName = context.getProject().getName();
                 String moduleName = getModuleName(resolvedElement);
                 //得到的moduleName可能是“Module/base”，所以要使用endsWith判断

@@ -1,4 +1,4 @@
-package com.android.example.lintjat;
+package com.android.example.lintjat.Utils;
 
 import com.android.tools.lint.detector.api.Project;
 

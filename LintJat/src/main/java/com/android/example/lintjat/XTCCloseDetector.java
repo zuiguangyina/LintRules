@@ -1,5 +1,6 @@
 package com.android.example.lintjat;
 
+import com.android.example.lintjat.Utils.FilleUtils;
 import com.android.tools.lint.detector.api.Category;
 import com.android.tools.lint.detector.api.Context;
 import com.android.tools.lint.detector.api.Detector;
@@ -9,7 +10,6 @@ import com.android.tools.lint.detector.api.JavaContext;
 import com.android.tools.lint.detector.api.Scope;
 import com.android.tools.lint.detector.api.Severity;
 import com.intellij.psi.PsiClass;
-import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiMethod;
 
 import org.jetbrains.annotations.NotNull;

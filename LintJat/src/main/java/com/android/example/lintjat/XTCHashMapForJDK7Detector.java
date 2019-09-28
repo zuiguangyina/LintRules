@@ -1,6 +1,7 @@
 package com.android.example.lintjat;
 
 import com.android.SdkConstants;
+import com.android.example.lintjat.Utils.PsiUtils;
 import com.android.tools.lint.client.api.UElementHandler;
 import com.android.tools.lint.detector.api.Category;
 import com.android.tools.lint.detector.api.Detector;

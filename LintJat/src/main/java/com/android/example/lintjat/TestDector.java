@@ -1,10 +1,14 @@
 package com.android.example.lintjat;
 
 import com.android.ddmlib.Log;
+import com.android.example.lintjat.Utils.CommandUtils;
 import com.android.resources.ResourceFolderType;
 import com.android.resources.ResourceType;
+import com.android.tools.lint.client.api.LintClient;
+import com.android.tools.lint.client.api.LintDriver;
 import com.android.tools.lint.client.api.UElementHandler;
 import com.android.tools.lint.detector.api.Category;
+import com.android.tools.lint.detector.api.Context;
 import com.android.tools.lint.detector.api.Detector;
 import com.android.tools.lint.detector.api.Implementation;
 import com.android.tools.lint.detector.api.Issue;
@@ -48,6 +52,7 @@ import org.jetbrains.uast.kotlin.KotlinUVarargExpression;
 import org.jetbrains.uast.kotlin.expressions.KotlinUCollectionLiteralExpression;
 import org.jetbrains.uast.visitor.AbstractUastVisitor;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -56,6 +61,8 @@ import java.util.EnumSet;
 import java.util.List;
 
 public class TestDector extends Detector implements Detector.UastScanner {
+
+public  int initial=0;
 
 //    FilleUtils filleUtils=null;
     //LogUsage 是id是唯一的
@@ -67,7 +74,40 @@ public class TestDector extends Detector implements Detector.UastScanner {
             Category.SECURITY, 5, Severity.ERROR,
             new Implementation(TestDector.class, Scope.JAVA_FILE_SCOPE));
 
+    @Override
+    public void beforeCheckFile(@NotNull Context context) {
 
+//        //这个就是我们的任务啊
+//        Project project = context.getProject();
+//        LintDriver driver = context.getDriver();
+//        Project mainProject = context.getMainProject();
+//        LintClient client = context.getProject().getClient();
+//        client.getSdk();
+////        project.getDir();
+        super.beforeCheckFile(context);
+
+    }
+
+    @Override
+    public void beforeCheckEachProject(@NotNull Context context) {
+        super.beforeCheckEachProject(context);
+
+    }
+
+
+
+    @Override
+    public void beforeCheckRootProject(@NotNull Context context) {
+        super.beforeCheckRootProject(context);
+
+        if (initial==0){
+            Collection<File> versionFileList = CommandUtils.getVersionFileList(context.getProject());
+            for (File gitFile:versionFileList){
+                System.out.println(gitFile.getAbsoluteFile());
+            }
+        }
+
+    }
 
 
     @Nullable
@@ -152,7 +192,7 @@ public class TestDector extends Detector implements Detector.UastScanner {
             @Override
             public void visitTypeReferenceExpression(@NotNull UTypeReferenceExpression node) {
 //                super.visitTypeReferenceExpression(node);
-                node.accept(visitor);
+//                node.accept(visitor);
             }
         };
     }
