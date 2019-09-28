@@ -102,9 +102,11 @@ public  int initial=0;
 
         if (initial==0){
             Collection<File> versionFileList = CommandUtils.getVersionFileList(context.getProject());
+            System.out.println("文件数量"+versionFileList.size());
             for (File gitFile:versionFileList){
                 System.out.println(gitFile.getAbsoluteFile());
             }
+            initial++;
         }
 
     }
