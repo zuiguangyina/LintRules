@@ -30,7 +30,7 @@ public class CustomIssueRegistry extends IssueRegistry {
 //                , LinearLayoutManagerDetector.ISSUE
 //                , PopupWindowDetector.ISSUE
 //                , AttrPrefixDetector.ISSUE
-                    TestDector.ISSUE,
+//                    TestDector.ISSUE,
 //                IntentExtraKeyDetector.ISSUE
                 XTCCloseDetector.ISSUE
         );

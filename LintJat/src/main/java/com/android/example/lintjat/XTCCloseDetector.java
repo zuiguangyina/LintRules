@@ -97,7 +97,7 @@ public class XTCCloseDetector extends Detector implements Detector.UastScanner {
             boolean isSubClass = false;
             for (int i = 0; i < mSupportSuperType.length; i++) {
                 //是不是这几个类的成员方法
-                if (context.getEvaluator().isMemberInClass(method,mSupportSuperType[i])) {
+                if (context.getEvaluator().isMemberInSubClassOf(method,mSupportSuperType[i],false)) {
                     hashMap.put("member",mSupportSuperType[i]);
                     isSubClass = true;
                     break;

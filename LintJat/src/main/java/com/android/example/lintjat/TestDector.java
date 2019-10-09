@@ -84,8 +84,18 @@ public  int initial=0;
 //        LintClient client = context.getProject().getClient();
 //        client.getSdk();
 ////        project.getDir();
+
+        //将要检查的文件
+        String absolutePath = context.file.getAbsolutePath();
+
         super.beforeCheckFile(context);
 
+    }
+
+    @Override
+    public void afterCheckFile(@NotNull Context context) {
+        super.afterCheckFile(context);
+        //检查文件之后
     }
 
     @Override
